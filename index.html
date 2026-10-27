@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Campus Handbook Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=JetBrains+Mono:wght@500;700&family=Public+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#ECEEF3;--card:#FFFFFF;--ink:#0E0E12;--muted:#4A4B57;--grid:#DADDE6;--shadow:#0E0E12;--focus:#2342E0;
+  --yellow:#FFD93B;--pink:#FF9AD5;--lime:#B8F13F;--blue:#78B6FF;--on-color:#0E0E12;
+  --font-display:"Archivo","Arial Black",Impact,"Helvetica Neue",Arial,sans-serif;
+  --font-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --bw:3px;--off:6px;--fs-label:.8125rem;
+  --fs-title:clamp(1.9rem,4.2vw,3rem);--fs-hero:clamp(2.2rem,5.6vw,4.4rem);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#15141A;--card:#201F28;--ink:#F3F2EC;--muted:#B7B6C2;--grid:#22212A;--shadow:#F3F2EC;--focus:#FFD93B;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#15141A;--card:#201F28;--ink:#F3F2EC;--muted:#B7B6C2;--grid:#22212A;--shadow:#F3F2EC;--focus:#FFD93B;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+:root{scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;color:var(--ink);font:400 1rem/1.6 var(--font-body);padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1160px;margin-inline:auto;display:grid;gap:clamp(28px,4vw,48px)}
+.blk{border:var(--bw) solid var(--ink);box-shadow:var(--off) var(--off) 0 var(--shadow)}
+.c-y{background:var(--yellow)}.c-p{background:var(--pink)}.c-l{background:var(--lime)}.c-b{background:var(--blue)}
+.c-y,.c-p,.c-l,.c-b{color:var(--on-color)}
+.label{font:700 var(--fs-label)/1.2 var(--font-mono);text-transform:uppercase;letter-spacing:.1em}
+.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px}
+.brand{display:inline-flex;align-items:stretch;text-decoration:none;background:var(--card);border:var(--bw) solid var(--ink);box-shadow:4px 4px 0 var(--shadow);font:900 1rem/1 var(--font-display);font-stretch:112%;text-transform:uppercase}
+.brand b{background:var(--yellow);color:var(--on-color);padding:.65em .75em;border-right:var(--bw) solid var(--ink)}
+.brand span{padding:.65em .85em}
+.top nav{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px}
+.top nav a{text-decoration:none;padding:.65em .85em;border:2px solid transparent}
+.top nav a:hover{border-color:var(--ink);background:var(--card)}
+.top nav a.nav-cta{background:var(--yellow);color:var(--on-color);border:var(--bw) solid var(--ink);box-shadow:4px 4px 0 var(--shadow);transition:transform .08s,box-shadow .08s}
+.top nav a.nav-cta:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--shadow)}
+.btn,button{display:inline-flex;align-items:center;justify-content:center;padding:.9em 1.3em;background:var(--card);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:0;box-shadow:var(--off) var(--off) 0 var(--shadow);font:800 1rem/1 var(--font-display);font-stretch:112%;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;cursor:pointer;transition:transform .08s,box-shadow .08s}
+.btn:hover,button:hover:not(:disabled){transform:translate(3px,3px);box-shadow:3px 3px 0 var(--shadow)}
+.btn:active,button:active:not(:disabled){transform:translate(var(--off),var(--off));box-shadow:0 0 0 var(--shadow)}
+.btn-primary,button.primary{background:var(--yellow);color:var(--on-color)}
+button:disabled{opacity:.55;cursor:wait;box-shadow:2px 2px 0 var(--shadow)}
+@media (prefers-reduced-motion:reduce){.btn,button,.top nav a.nav-cta{transition:none}}
+.tag{display:inline-block;background:var(--ink);color:var(--paper);padding:.5em .8em}
+.hl{background:var(--yellow);color:var(--on-color);padding:0 .14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:var(--bw) solid var(--ink);padding-top:18px;font:500 var(--fs-label)/1.4 var(--font-mono)}
+
+.stack{display:grid;gap:clamp(40px,6vw,72px)}
+.hero{display:grid;gap:22px;justify-items:start}
+h1{font:900 var(--fs-hero)/.98 var(--font-display);font-stretch:108%;text-transform:uppercase;letter-spacing:-.01em;text-wrap:balance;overflow-wrap:anywhere}
+.lede{font-size:1.125rem;line-height:1.55;max-width:56ch}
+.warn{background:var(--yellow);color:var(--on-color);padding:14px 18px;font-weight:600;max-width:78ch}
+.sec-head h2,.card>h2{font:900 clamp(1.3rem,2.4vw,1.7rem)/1.05 var(--font-display);font-stretch:112%;text-transform:uppercase}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0}
+.steps li{display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:112px;padding:14px;border:var(--bw) solid var(--ink);box-shadow:var(--off) var(--off) 0 var(--shadow)}
+.steps strong{display:block;font:900 clamp(1.1rem,2.2vw,1.5rem)/1 var(--font-display);font-stretch:112%;text-transform:uppercase}
+.steps small{color:inherit;display:block;margin-top:6px;font:500 .875rem/1.3 var(--font-body)}
+.grid{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:28px;align-items:start}
+.col{display:grid;gap:28px;min-width:0}
+.card{background:var(--card);min-width:0}
+.card>h2{padding:12px 20px;border-bottom:var(--bw) solid var(--ink);display:flex;align-items:center;gap:12px;color:var(--on-color)}
+.card>h2 .n{display:inline-grid;place-items:center;width:1.7em;height:1.7em;background:var(--ink);color:var(--paper);font:700 .8em/1 var(--font-mono)}
+.card .in{padding:20px;display:grid;gap:6px}
+label{display:block;margin-top:12px;font:700 var(--fs-label)/1.2 var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
+label:first-child{margin-top:0}
+select,input,textarea{width:100%;max-width:100%;padding:.7em .8em;background:var(--paper);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:0;font:500 1rem/1.4 var(--font-body)}
+input[type=file]{padding:.5em;font:500 .875rem/1.4 var(--font-mono)}
+input[type=file]::file-selector-button{margin-right:.8em;padding:.5em .8em;background:var(--yellow);color:var(--on-color);border:2px solid var(--ink);border-radius:0;font:700 .75rem/1 var(--font-mono);text-transform:uppercase;cursor:pointer}
+select:focus,input:focus,textarea:focus{background:var(--card)}
+textarea{min-height:110px;resize:vertical}
+small,.hint{font:500 var(--fs-label)/1.45 var(--font-mono);color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px}
+details{margin-top:16px;border:2px solid var(--ink)}
+summary{cursor:pointer;padding:.6em .8em;background:var(--paper);font:700 var(--fs-label)/1.2 var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
+details[open] summary{border-bottom:2px solid var(--ink)}
+pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:500 .8125rem/1.55 var(--font-mono);background:var(--ink);color:var(--paper);padding:14px;max-height:400px;overflow:auto}
+pre:empty{display:none}
+#status{min-height:1.6em;margin-top:16px;font:700 .875rem/1.45 var(--font-mono)}
+#status:empty{display:none}
+.answer-box{margin-top:16px}
+.answer{white-space:pre-wrap;overflow-wrap:anywhere;font-weight:600;font-size:1.15rem;line-height:1.5}
+#answer:not(:empty){background:var(--yellow);color:var(--on-color);border:var(--bw) solid var(--ink);box-shadow:4px 4px 0 var(--shadow);padding:16px 18px}
+.ev{display:grid;gap:18px;margin-top:16px}
+.ev:empty{display:none}
+.hit{display:grid;gap:8px;border:2px solid var(--ink);background:var(--paper);padding:14px}
+.hit-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:baseline}
+.src{font:500 var(--fs-label)/1.4 var(--font-mono);overflow-wrap:anywhere}
+.cite{display:inline-grid;place-items:center;min-width:1.7em;height:1.7em;padding:0 .3em;margin-right:.6em;border:2px solid var(--ink);background:var(--yellow);color:var(--on-color);font-weight:700}
+.score{font:700 1rem/1 var(--font-mono);font-variant-numeric:tabular-nums}
+.bar{grid-column:1/-1;height:14px;border:2px solid var(--ink);background:var(--card)}
+.fill{display:block;height:100%;background:var(--lime);border-right:2px solid var(--ink)}
+.hit p{font-weight:500;overflow-wrap:anywhere}
+.chat{display:grid;gap:12px;max-height:420px;overflow:auto;padding:2px}
+.chat:empty{display:none}
+.msg{max-width:88%;padding:12px 14px;border:2px solid var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.user{justify-self:end;background:var(--yellow);color:var(--on-color)}
+.msg.assistant{justify-self:start;background:var(--paper)}
+.chat-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px}
+.chat-tools button{padding:.55em .8em;font-size:.8rem}
+.chat-launcher{position:fixed;top:50%;right:0;z-index:20;transform:translateY(-50%);padding:.9em .7em;writing-mode:vertical-rl;background:var(--lime);color:var(--on-color)}
+.chat-launcher:hover:not(:disabled){transform:translate(-3px,-50%)}
+#ask-card.chat-popup-open{position:fixed;right:clamp(16px,4vw,48px);bottom:24px;z-index:19;width:min(440px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto}
+.popup-close{display:none;margin-left:auto;padding:.45em .65em;font-size:.8rem}
+#ask-card.chat-popup-open .popup-close{display:inline-flex}
+@media (max-width:960px){.grid{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:961px){body.chat-open{padding-right:calc(max(16px,env(safe-area-inset-right,0px)) + 464px)}}
+@media (max-width:960px){#ask-card.chat-popup-open{position:relative;right:auto;bottom:auto;width:auto;max-height:none;overflow:visible;margin-block:8px}.chat-launcher{top:auto;bottom:24px;transform:none}.chat-launcher:hover:not(:disabled){transform:translateY(-3px)}}
+@media (max-width:520px){.top nav a.nl{display:none}}
+</style></head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="Campus Handbook Assistant, back to top"><b>RAG</b><span>Campus Assistant</span></a>
+    <nav aria-label="Sections">
+      <a class="label nl" href="#build">1 Index</a>
+      <a class="label nl" href="#experiment">2 Experiment</a>
+      <a class="label nav-cta" href="#ask-card">Ask</a>
+    </nav>
+  </header>
+
+  <main class="stack" id="top">
+    <section class="hero">
+      <p class="label tag">RAG from scratch · Student lab</p>
+      <h1>Campus Handbook <span class="hl">Assistant</span></h1>
+      <p class="lede">Load documents → split into chunks → retrieve evidence → generate a cited answer.</p>
+      <p class="warn blk">Sample policies are fictional teaching data, not VCET rules. Source labels and scores are aids for inspection; they do not prove an answer is correct.</p>
+    </section>
+
+    <ol class="steps" aria-label="Pipeline">
+      <li class="c-y"><span class="label">01</span><div><strong>Load</strong><small>Read TXT, MD, PDF</small></div></li>
+      <li class="c-p"><span class="label">02</span><div><strong>Chunk</strong><small>Word windows + overlap</small></div></li>
+      <li class="c-l"><span class="label">03</span><div><strong>Retrieve</strong><small>Rank the top-k passages</small></div></li>
+      <li class="c-b"><span class="label">04</span><div><strong>Generate</strong><small>Answer with citations</small></div></li>
+    </ol>
+
+    <div class="grid">
+      <div class="col">
+        <section class="card blk" id="build" aria-labelledby="h-build">
+          <h2 class="c-y" id="h-build"><span class="n">1</span>Build your index</h2>
+          <div class="in">
+            <label for="files">Your documents (optional)</label>
+            <input id="files" type="file" multiple accept=".txt,.md,.pdf">
+            <small>UTF-8 text or text-based PDF; under 5 MB total. No OCR.</small>
+            <label for="mode">Retrieval method</label>
+            <select id="mode"><option value="keyword">TF-IDF baseline · no model needed</option><option value="semantic">Semantic embeddings · Ollama needed</option></select>
+            <label for="size">Chunk size in words</label>
+            <input id="size" type="number" min="20" max="200" value="100">
+            <label for="overlap">Overlap in words</label>
+            <input id="overlap" type="number" min="0" max="199" value="20">
+            <div class="btns"><button id="sample" class="primary">Build sample index</button><button id="upload">Index selected files</button></div>
+            <details><summary>Index preview</summary><pre id="preview">Build an index to see the chunks.</pre></details>
+          </div>
+        </section>
+
+        <section class="card blk" id="experiment" aria-labelledby="h-exp">
+          <h2 class="c-p" id="h-exp"><span class="n">2</span>Choose an experiment</h2>
+          <div class="in">
+            <label for="answer_mode">Answer mode</label>
+            <select id="answer_mode"><option value="evidence">Evidence only · retrieval, no generation</option><option value="rag">RAG · evidence + local LLM</option><option value="plain">LLM only · evidence withheld</option></select>
+            <label for="model">Generation model</label>
+            <select id="model"><option>qwen2.5:1.5b</option><option>qwen2.5:0.5b</option></select>
+            <label for="k">Top k passages</label>
+            <input id="k" type="number" min="1" max="5" value="3">
+            <small>Changing retrieval method or chunk settings requires rebuilding the index. The app uses the last built index.</small>
+          </div>
+        </section>
+      </div>
+
+      <div class="col">
+        <section class="card blk" id="ask-card" aria-labelledby="h-ask">
+          <h2 class="c-l" id="h-ask"><span class="n">3</span>Chat with your documents<button id="close-chat-popup" class="popup-close" type="button" aria-label="Close chatbot pop-up">×</button></h2>
+          <div class="in">
+            <div id="chat" class="chat" aria-live="polite" aria-label="Conversation"></div>
+            <label for="question">Question</label>
+            <textarea id="question" placeholder="Ask a follow-up question…">How many books can a third year student borrow, and for how long?</textarea>
+            <div class="btns"><button id="ask" class="primary">Send message</button></div>
+            <div class="chat-tools"><small>Chat history is kept in this browser session.</small><button id="clear-chat" type="button">Clear chat</button></div>
+            <p id="status" role="status" aria-live="polite"></p>
+            <div id="answer" class="answer"></div>
+          </div>
+        </section>
+
+        <section class="card blk" aria-labelledby="h-ev">
+          <h2 class="c-b" id="h-ev">Retrieved evidence</h2>
+          <div class="in">
+            <small>For LLM-only mode, these passages are shown for comparison but are not sent to the LLM.</small>
+            <div id="sources" class="ev"></div>
+            <details><summary>Inspect the exact user prompt</summary><pre id="prompt"></pre></details>
+            <small>The RAG system instruction is visible as SYSTEM in rag.py. The prompt above is the user message.</small>
+            <pre id="checks"></pre>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot"><span>Local single-user demo</span><span>No account or API key</span><span>Restart clears the in-memory index</span></footer>
+</div>
+<button id="chat-launcher" class="chat-launcher" type="button" aria-controls="ask-card" aria-expanded="false">Chat</button>
+<script>
+const $=id=>document.getElementById(id);let indexed=false,history=[];
+async function api(path,body){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw Error(d.error||'Request failed');return d;}
+async function job(fn){document.querySelectorAll('button').forEach(b=>b.disabled=true);$('status').textContent='Working… Model requests can take several minutes on CPU.';try{await fn()}catch(e){$('status').textContent=e.message}finally{document.querySelectorAll('button').forEach(b=>b.disabled=false)}}
+function renderChat(){const box=$('chat');box.replaceChildren(...history.map(m=>{const el=document.createElement('div');el.className='msg '+m.role;el.textContent=m.content;return el}));box.scrollTop=box.scrollHeight}
+function clearChat(){history=[];renderChat();$('answer').textContent='';$('sources').replaceChildren();$('prompt').textContent='';$('checks').textContent='';$('status').textContent='Chat cleared.'}
+function toggleChatPopup(open){document.body.classList.toggle('chat-open',open);$('ask-card').classList.toggle('chat-popup-open',open);$('chat-launcher').setAttribute('aria-expanded',String(open));if(open){$('ask-card').scrollIntoView({block:'nearest'});$('question').focus()}}
+async function index(sample){indexed=false;clearChat();await job(async()=>{let files=[];if(!sample){const chosen=[...$('files').files];if(!chosen.length)throw Error('Select documents first.');if(chosen.reduce((s,f)=>s+f.size,0)>5000000)throw Error('Keep files below 5 MB total.');for(const f of chosen){const bytes=new Uint8Array(await f.arrayBuffer());let bin='';for(const b of bytes)bin+=String.fromCharCode(b);files.push({name:f.name,data:btoa(bin)})}}const d=await api('/api/index',{sample,files,mode:$('mode').value,size:Number($('size').value),overlap:Number($('overlap').value)});indexed=true;$('preview').textContent=JSON.stringify(d.preview,null,2);$('status').textContent=`Built ${d.chunks} chunks using ${d.mode} retrieval in ${d.seconds}s. ${d.warnings.join(' ')}`})}
+$('sample').onclick=()=>index(true);$('upload').onclick=()=>index(false);
+function hitCard(h){const a=document.createElement('article'),top=document.createElement('div'),src=document.createElement('span'),cite=document.createElement('span'),score=document.createElement('b'),bar=document.createElement('span'),fill=document.createElement('span'),p=document.createElement('p');a.className='hit';top.className='hit-top';src.className='src';cite.className='cite';cite.textContent=h.label;src.append(cite,`${h.source} · page ${h.page} · chunk ${h.chunk}`);score.className='score';score.title='cosine';score.textContent=h.score;bar.className='bar';bar.setAttribute('aria-hidden','true');fill.className='fill';fill.style.width=Math.max(0,Math.min(1,Number(h.score)||0))*100+'%';bar.append(fill);p.textContent=h.text;top.append(src,score,bar);a.append(top,p);return a}
+$('ask').onclick=()=>job(async()=>{if(!indexed)throw Error('Build an index first.');const question=$('question').value.trim();const d=await api('/api/chat',{question,history,k:Number($('k').value),answer_mode:$('answer_mode').value === 'evidence' ? 'rag' : $('answer_mode').value,model:$('model').value});history=d.history;renderChat();$('question').value='';$('answer').textContent=d.answer;$('prompt').textContent=d.prompt;$('checks').textContent=d.citations?JSON.stringify(d.citations,null,2)+'\nLabel syntax only; manually verify support for each claim.':'';$('sources').replaceChildren(...d.hits.map(hitCard));$('status').textContent=`${d.answer_mode} mode · ${d.seconds}s. Similarity is not confidence.`});
+$('clear-chat').onclick=clearChat;
+$('chat-launcher').onclick=()=>toggleChatPopup(!$('ask-card').classList.contains('chat-popup-open'));
+$('close-chat-popup').onclick=()=>toggleChatPopup(false);
+$('question').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();$('ask').click()}});
+</script></body></html>
